@@ -1,0 +1,67 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# tango
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+The tango package helps tango DJ preparing for milongas. You tell it the specs of your milonga (duration, format, etc.), and it will give you an overview of things like number of songs, start times for cycles, etc. Things that may be useful for preparing playlists.
+
+## Installation
+
+You can install the development version of tango from [GitHub](https://github.com/) with:
+
+``` r
+# install.packages("devtools")
+devtools::install_github("janlindemans/tango")
+```
+
+## Example
+
+If you're a DJ and are preparing a playlist, one thing you will want to know is how many songs you should add to your playlist, given the duration of the milonga. For instance, if the milonga lasts for 4 hours, how many songs do you need in your playlist? That's what `tango::milonga()` helps you with.
+
+Say you are DJing a 5-hours milonga, with tandas of 4 songs and cortinas of 45 seconds. This is what you do: 
+
+```{r}
+library(tango)
+milonga(hrs = 5, tanda = 4, cortina = 45)
+```
+
+Now you can easily see how many songs you'll need in your playlist, or the total duration you'll need to fill. It's handy when filling your playlist.  
+  
+Notice that `tango::milonga()` filled in some default values for variables you left blank: for instance, it assumed you're starting at 8 PM. Maybe it doesn't matter when it starts, but sometimes it's handy to track how the cycles will fit the development of the evening.  As the T-shirt says: 10 PM Di Sarli, 11 PM Troilo, 1 AM Pugliese (and D'Arienzo at any time).
+
+On defaults: If you run `tango::milonga()` raw, you'll see what all the defaults are:
+
+```{r}
+milonga()
+```
+
+Pretty default, I'd say. 
+
+But you can make it very tailor-made.  For instance, a shorter milonga of 3 hours and a half, starting at 11 AM, with shorter tandas, a TTVTM structure (`cycle = 5`), 2 chacarera songs, a separate cumparsita, 8 "party" songs played outside of the milonga, and some other specs:
+
+```{r}
+milonga(
+  hrs = 3.5, tanda = 3, cycle = 5,
+  song = 2.4, cortina = 30, cortina_actual = 3.5, 
+  cumparsita_separate = TRUE, chacarera = 1, 
+  start = 11, AM = TRUE,
+  songs_outside = 8, songs_outside_mins = 3.1
+  )
+```
+
+That's it!

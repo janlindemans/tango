@@ -1,12 +1,14 @@
 Package: tango
-Title: What the Package Does (One Line, Title Case)
+Title: Help Tango DJs To Create Playlists
 Version: 0.0.0.9000
 Authors@R: 
-    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"),
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
-License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
-    license
+    person("Jan", "Lindemans", , "janwillem.lindemans@gmail.com", role = c("aut", "cre"),
+           comment = c(ORCID = "https://orcid.org/0000-0002-3702-8651"))
+Description: Provide information about the desired length and structure of your milong, and get a summary of how many songs your playlist can contain, etc.
+License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.1
+Suggests: 
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
